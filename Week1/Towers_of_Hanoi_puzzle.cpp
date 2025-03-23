@@ -1,22 +1,19 @@
 #include <iostream>
 using namespace std;
-// Recursive function to solve Tower of Hanoi
-void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod)
-{
-    if (n == 1)
-    {
 
-        cout << "Movedisk 1 from " << from_rod << " to " << to_rod << endl;
+void TowerOfHanoi(int n, char from_peg, char to_peg, char aux_peg) {
+    if (n == 1) {
+        cout << "Di chuyrn dia 1 tu " << from_peg << " den " << to_peg << endl;
         return;
     }
-    towerOfHanoi(n - 1, from_rod, aux_rod, to_rod);
-    cout << "Movedisk " << n << " from " << from_rod << " to " << to_rod << endl;
-    towerOfHanoi(n - 1, aux_rod, to_rod, from_rod);
+    TowerOfHanoi(n-1, from_peg, aux_peg, to_peg);
+    cout << "Di chuyen dia " << n << " tu " << from_peg << " den " << to_peg << endl;
+    TowerOfHanoi(n-1, aux_peg, to_peg, from_peg);
 }
-
-int main()
-{
-    int n = 3; // Numberofdisks
-    towerOfHanoi(n, 'A', 'C', 'B');
+int main() {
+    int n;
+    cout << "Nhap so luong dia: ";
+    cin >> n;
+    TowerOfHanoi(n, 'A', 'C', 'B'); 
     return 0;
 }
